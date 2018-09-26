@@ -9,10 +9,10 @@ namespace Common
     {
         public const string Scheme = "Bearer";
         public const string Authority = "http://localhost:10086/ids4";
-        public const string client_1 = "client";
-        public const string client_2 = "ro.client";
-        public const string MsgApi = "msg_api";
-        public const string PhoneApi = "phone_api";
+        public const string Client_Msg = "msg";
+        public const string Client_Phone = "phone";
+        public const string Api_Msg = "msg_api";
+        public const string Api_Phone = "phone_api";
         public const string Secret = "MySecret";
 
 
@@ -21,8 +21,8 @@ namespace Common
         {
             return new List<ApiResource>
             {
-                new ApiResource(MsgApi, "Msg"),
-                new ApiResource(PhoneApi, "Phone")
+                new ApiResource(Api_Msg, "Msg"),
+                new ApiResource(Api_Phone, "Phone")
             };
         }
 
@@ -34,7 +34,7 @@ namespace Common
             {
                 new Client
                 {
-                    ClientId = client_1,
+                    ClientId = Client_Msg,
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets =
                     {
@@ -42,13 +42,13 @@ namespace Common
                     },
                     AllowedScopes =
                     {
-                       MsgApi,
+                       Api_Msg,
                     }
                 },
                 // resource owner password grant client
                 new Client
                 {
-                    ClientId = client_2,
+                    ClientId = Client_Phone,
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 
                     ClientSecrets =
@@ -57,7 +57,7 @@ namespace Common
                     },
                     AllowedScopes =
                     {
-                       PhoneApi
+                       Api_Phone
                     }
                 }
             };

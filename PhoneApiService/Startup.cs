@@ -34,7 +34,7 @@ namespace PhoneApiService
             services.AddAuthentication(IdentityServerConfig.Scheme)
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.ApiName = IdentityServerConfig.PhoneApi;
+                    options.ApiName = IdentityServerConfig.Api_Phone;
 
                     options.Authority = IdentityServerConfig.Authority;
                     options.RequireHttpsMetadata = false;

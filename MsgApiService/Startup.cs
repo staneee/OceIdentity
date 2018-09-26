@@ -34,7 +34,7 @@ namespace MsgApiService
             services.AddAuthentication(IdentityServerConfig.Scheme)
                 .AddIdentityServerAuthentication(options =>
                 {
-                    options.ApiName = IdentityServerConfig.MsgApi;
+                    options.ApiName = IdentityServerConfig.Api_Msg;
 
                     options.Authority = IdentityServerConfig.Authority;
                     options.RequireHttpsMetadata = false;

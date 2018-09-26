@@ -41,7 +41,7 @@
         }
       ],
       "UpstreamPathTemplate": "/ids4/{url}",
-      "UpstreamHttpMethod": [ "*" ]
+      "UpstreamHttpMethod": [ "Get","Post","Put","Delete" ]
     }
   ]
 }
