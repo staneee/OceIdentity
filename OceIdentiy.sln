@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "OcelotGateway\OcelotGateway.csproj", "{F54533EB-6872-4E4F-86E1-D36AB8FEA0C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateway", "OcelotGateway\OcelotGateway.csproj", "{F54533EB-6872-4E4F-86E1-D36AB8FEA0C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneApiService", "PhoneApiService\PhoneApiService.csproj", "{2CC6E133-8BB2-4CC7-ADF2-BB9EEA4B1206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneApiService", "PhoneApiService\PhoneApiService.csproj", "{2CC6E133-8BB2-4CC7-ADF2-BB9EEA4B1206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsgApiService", "MsgApiService\MsgApiService.csproj", "{0832093C-9E64-4532-9EB6-48A65FE7751A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MsgApiService", "MsgApiService\MsgApiService.csproj", "{0832093C-9E64-4532-9EB6-48A65FE7751A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDS4Service", "IDS4Service\IDS4Service.csproj", "{89E3407B-DC3B-4E9B-9D99-A15DB3DC376C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4E9A63DC-81C8-40A4-A69F-9A13C84F4C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{0832093C-9E64-4532-9EB6-48A65FE7751A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0832093C-9E64-4532-9EB6-48A65FE7751A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0832093C-9E64-4532-9EB6-48A65FE7751A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E3407B-DC3B-4E9B-9D99-A15DB3DC376C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E3407B-DC3B-4E9B-9D99-A15DB3DC376C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E3407B-DC3B-4E9B-9D99-A15DB3DC376C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E3407B-DC3B-4E9B-9D99-A15DB3DC376C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E9A63DC-81C8-40A4-A69F-9A13C84F4C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E9A63DC-81C8-40A4-A69F-9A13C84F4C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E9A63DC-81C8-40A4-A69F-9A13C84F4C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E9A63DC-81C8-40A4-A69F-9A13C84F4C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
