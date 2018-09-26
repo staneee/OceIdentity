@@ -9,7 +9,7 @@ namespace MsgApiService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize] // 如果不需要获取当前登陆用户信息或者复杂校验权限，那么不需要这些，配置 Ocelot 网关处进行校验
     public class ValuesController : ControllerBase
     {
         // GET api/values

@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,14 @@ namespace Common
         public const string Api_Phone = "phone_api";
         public const string Secret = "MySecret";
 
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(), //必须要添加，否则报无效的 scope 错误               
+                new IdentityResources.Profile()
+            };
+        }
 
         // scopes define the API resources in your system
         public static IEnumerable<ApiResource> GetApiResources()
@@ -36,13 +45,14 @@ namespace Common
                 {
                     ClientId = Client_Msg,
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AccessTokenLifetime = 5,
                     ClientSecrets =
                     {
                         new Secret(Secret.Sha256())
                     },
                     AllowedScopes =
                     {
-                       Api_Msg,
+                        Api_Msg
                     }
                 },
                 // resource owner password grant client
@@ -50,14 +60,16 @@ namespace Common
                 {
                     ClientId = Client_Phone,
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-
+                    AccessTokenLifetime = 5,
                     ClientSecrets =
                     {
                         new Secret(Secret.Sha256())
                     },
                     AllowedScopes =
                     {
-                       Api_Phone
+                        Api_Phone,
+                        IdentityServerConstants.StandardScopes.OpenId, //必须要添加，否则报 forbidden 错误
+                        IdentityServerConstants.StandardScopes.Profile
                     }
                 }
             };

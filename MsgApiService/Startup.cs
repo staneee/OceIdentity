@@ -27,18 +27,20 @@ namespace MsgApiService
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddMvcCore()
-                .AddAuthorization()
-                .AddJsonFormatters();
 
-            services.AddAuthentication(IdentityServerConfig.Scheme)
-                .AddIdentityServerAuthentication(options =>
-                {
-                    options.ApiName = IdentityServerConfig.Api_Msg;
+            // 如果不需要获取当前登陆用户信息或者复杂校验权限，那么不需要这些，配置 Ocelot 网关处进行校验
+            //services.AddMvcCore()
+            //    .AddAuthorization()
+            //    .AddJsonFormatters();
 
-                    options.Authority = IdentityServerConfig.Authority;
-                    options.RequireHttpsMetadata = false;
-                });
+            //services.AddAuthentication(IdentityServerConfig.Scheme)
+            //    .AddIdentityServerAuthentication(options =>
+            //    {
+            //        options.ApiName = IdentityServerConfig.Api_Msg;
+
+            //        options.Authority = IdentityServerConfig.Authority;
+            //        options.RequireHttpsMetadata = false;
+            //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +51,8 @@ namespace MsgApiService
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseAuthentication();
+            // 如果不需要获取当前登陆用户信息或者复杂校验权限，那么不需要这些，配置 Ocelot 网关处进行校验
+            //app.UseAuthentication();
 
             app.UseMvc();
         }

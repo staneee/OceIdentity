@@ -17,17 +17,18 @@ namespace ConsoleClient
         {
             // http://localhost
             var ids4Host = "http://localhost:10089";
-            var msgHost = "http://localhost:10086/msg/values";
-            var phoneHost = "http://localhost:10086/phone/values";
+            var msgHost = "http://localhost:10086/msg";
+            var phoneHost = "http://localhost:10086/phone";
 
 
             var accessToken = await GetMsgToken(ids4Host);  // 请求MsgApi Token
-            await RequestData(accessToken, msgHost);        // 请求MsgApi
-            await RequestData(accessToken, phoneHost);      // 请求PhoneApi
+            await RequestData(accessToken, $"{msgHost}/values");       // 请求MsgApi
+            await RequestData(accessToken, $"{phoneHost}/values");      // 请求PhoneApi
 
             accessToken = await GetPhoneToken(ids4Host);//  请求PhoneApi Token
-            await RequestData(accessToken, phoneHost);  // 请求PhoneApi
-            await RequestData(accessToken, msgHost);    // 请求MsgApi
+            await RequestData(accessToken, $"{phoneHost}/values");  // 请求PhoneApi 1
+            await RequestData(accessToken, $"{phoneHost}/identity");  // 请求PhoneApi 2
+            await RequestData(accessToken, $"{msgHost}/values");    // 请求MsgApi
 
             Console.ReadKey();
         }

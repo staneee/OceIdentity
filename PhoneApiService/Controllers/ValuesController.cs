@@ -16,7 +16,13 @@ namespace PhoneApiService.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Nokia", "HuaWei", "Sony" };
+            // 登陆的用户信息
+            string name = this.User.Identity.Name;
+            string userId = this.User.FindFirst("UserId").Value;
+            string realName = this.User.FindFirst("RealName").Value;
+            string email = this.User.FindFirst("Email").Value;
+
+            return new string[] { "Nokia", "HuaWei", "Sony",$"current" };
         }
 
         // GET api/values/5
