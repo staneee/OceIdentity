@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,19 @@ namespace MsgApiService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddMvcCore()
+                .AddAuthorization()
+                .AddJsonFormatters();
+
+            services.AddAuthentication(IdentityServerConfig.Scheme)
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.ApiName = IdentityServerConfig.MsgApi;
+
+                    options.Authority = IdentityServerConfig.Authority;
+                    options.RequireHttpsMetadata = false;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +48,8 @@ namespace MsgApiService
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             app.UseMvc();
         }

@@ -30,6 +30,18 @@
       ],
       "UpstreamPathTemplate": "/phone/{url}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    { // API:identiyServer4
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "10089"
+        }
+      ],
+      "UpstreamPathTemplate": "/ids4/{url}",
+      "UpstreamHttpMethod": [ "*" ]
     }
   ]
 }

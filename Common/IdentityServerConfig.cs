@@ -7,6 +7,8 @@ namespace Common
 {
     public class IdentityServerConfig
     {
+        public const string Scheme = "Bearer";
+        public const string Authority = "http://localhost:10086/ids4";
         public const string client_1 = "client";
         public const string client_2 = "ro.client";
         public const string MsgApi = "msg_api";
