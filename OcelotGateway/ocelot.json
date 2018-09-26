@@ -17,7 +17,12 @@
         }
       ],
       "UpstreamPathTemplate": "/msg/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "UseServiceDiscovery": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "msg_api",
+        "AllowedScopes": []
+      }
     },
     { // API:phone
       "DownstreamPathTemplate": "/api/{url}",
@@ -29,19 +34,12 @@
         }
       ],
       "UpstreamPathTemplate": "/phone/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
-    },
-    { // API:identiyServer4
-      "DownstreamPathTemplate": "/{url}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "10089"
-        }
-      ],
-      "UpstreamPathTemplate": "/ids4/{url}",
-      "UpstreamHttpMethod": [ "Get","Post","Put","Delete" ]
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "UseServiceDiscovery": true,
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "phone_api",
+        "AllowedScopes": []
+      }
     }
   ]
 }

@@ -15,18 +15,19 @@ namespace ConsoleClient
 
         private static async Task MainAsync()
         {
-            var ids4Host = "http://localhsot:10086/ids4";
-            var msgHost = "http://localhsot:10086/msg";
-            var phoneHost = "http://localhsot:10086/phone";
+            // http://localhost
+            var ids4Host = "http://localhost:10089";
+            var msgHost = "http://localhost:10086/msg/values";
+            var phoneHost = "http://localhost:10086/phone/values";
 
 
-            var accessToken = await GetMsgToken(ids4Host);
-            await RequestData(accessToken, msgHost);
+            var accessToken = await GetMsgToken(ids4Host);  // 请求MsgApi Token
+            await RequestData(accessToken, msgHost);        // 请求MsgApi
+            await RequestData(accessToken, phoneHost);      // 请求PhoneApi
 
-
-            accessToken = await GetPhoneToken(ids4Host);
-            await RequestData(accessToken, phoneHost);
-
+            accessToken = await GetPhoneToken(ids4Host);//  请求PhoneApi Token
+            await RequestData(accessToken, phoneHost);  // 请求PhoneApi
+            await RequestData(accessToken, msgHost);    // 请求MsgApi
 
             Console.ReadKey();
         }
@@ -73,7 +74,7 @@ namespace ConsoleClient
             }
 
             // request token
-            var tokenClient = new TokenClient(disco.TokenEndpoint, IdentityServerConfig.Api_Phone, IdentityServerConfig.Secret);
+            var tokenClient = new TokenClient(disco.TokenEndpoint, IdentityServerConfig.Client_Phone, IdentityServerConfig.Secret);
             var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("admin", "123", IdentityServerConfig.Api_Phone);//使用用户名密码
 
             if (tokenResponse.IsError)
