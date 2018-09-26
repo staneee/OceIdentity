@@ -1,0 +1,35 @@
+{
+  // BaseUrl是我们外部暴露的Url
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:10086"
+  },
+  //====================
+  // 根据模板将刚刚创建并启动的两个Service的信息进行了配置
+
+  "ReRoutes": [
+    { // API:msg
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "10087"
+        }
+      ],
+      "UpstreamPathTemplate": "/msg/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    { // API:phone
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "10088"
+        }
+      ],
+      "UpstreamPathTemplate": "/phone/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    }
+  ]
+}
